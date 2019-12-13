@@ -1,6 +1,6 @@
-# Integrar plantilla AdminLTE 3.1 a un proyecto Django 2.2 
+# Integrar plantilla AdminLTE 3.0.1 a un proyecto Django 2.2 
 
-Es un intento de integrar la plantilla AdminLTE 3.1 a un proyecto Django 2.2.
+Es un intento de integrar la plantilla AdminLTE 3.0.1 a un proyecto Django 2.2.
 
 Éste proyecto me sirve de base para futuros iniciativos en Django. 
 
@@ -8,7 +8,7 @@ Es un intento de integrar la plantilla AdminLTE 3.1 a un proyecto Django 2.2.
 ### Qué confirma éste proyecto?
 
  * [Django 2.2](https://www.djangoproject.com/)
- * [AdminLTE 3.1](https://adminlte.io)
+ * [AdminLTE 3.0.1](https://adminlte.io)
  * Repositorio Git en Github
 
 
@@ -37,6 +37,187 @@ Los casos son muy simples:
 References:
 * [hub.docker.com/postgres](https://hub.docker.com/_/postgres)
 * [Amigoscode - Docker and PostgreSQL in [10 Minutes]](https://youtu.be/aHbE3pTyG-Q)
+* [How to setup PostgreSQL on MacOS](https://www.robinwieruch.de/postgres-sql-macos-setup)
+* [Getting Started with PostgreSQL on Mac OSX](https://www.codementor.io/@engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb)
+
+Una alternativa viable es instalar postgres utilizando Homebrew.
+```bash
+$ brew install postgresql
+Updating Homebrew...
+==> Auto-updated Homebrew!
+Updated 2 taps (homebrew/core and homebrew/cask).
+==> Deleted Formulae
+docker-cloud
+
+==> Downloading https://homebrew.bintray.com/bottles/postgresql-12.1.catalina.bottle.tar.gz
+==> Downloading from https://akamai.bintray.com/30/309377407d7cb766d238f063c10210c4e48d48fcdadd62560346c2d4af782bc4?__gda__=exp=1576221171~hmac=d6185c86503fe6d0
+######################################################################## 100.0%
+==> Pouring postgresql-12.1.catalina.bottle.tar.gz
+==> /usr/local/Cellar/postgresql/12.1/bin/initdb --locale=C -E UTF-8 /usr/local/var/postgres
+==> Caveats
+To migrate existing data from a previous major version of PostgreSQL run:
+  brew postgresql-upgrade-database
+
+To have launchd start postgresql now and restart at login:
+  brew services start postgresql
+Or, if you don't want/need a background service you can just run:
+  pg_ctl -D /usr/local/var/postgres start
+==> Summary
+🍺  /usr/local/Cellar/postgresql/12.1: 3,217 files, 37.7MB
+==> `brew cleanup` has not been run in 30 days, running now...
+Removing: /Users/gerardo/Library/Caches/Homebrew/composer--1.9.0.phar... (1.8MB)
+Removing: /Users/gerardo/Library/Caches/Homebrew/curl-openssl--7.66.0.mojave.bottle.tar.gz... (1MB)
+Removing: /Users/gerardo/Library/Caches/Homebrew/glib--2.62.2.mojave.bottle.tar.gz... (4.5MB)
+Removing: /Users/gerardo/Library/Caches/Homebrew/libidn2--2.2.0_1.mojave.bottle.tar.gz... (224.5KB)
+Removing: /Users/gerardo/Library/Caches/Homebrew/libpq--11.5_1.mojave.bottle.tar.gz... (5.4MB)
+Removing: /Users/gerardo/Library/Caches/Homebrew/libtiff--4.0.10_1.mojave.bottle.tar.gz... (1MB)
+Removing: /Users/gerardo/Library/Caches/Homebrew/nghttp2--1.39.2_1.mojave.bottle.tar.gz... (947.8KB)
+Removing: /Users/gerardo/Library/Caches/Homebrew/nginx--1.17.3_1.mojave.bottle.tar.gz... (1.2MB)
+Removing: /Users/gerardo/Library/Caches/Homebrew/php--7.3.11.mojave.bottle.tar.gz... (19.9MB)
+Removing: /Users/gerardo/Library/Caches/Homebrew/python--3.7.4_1.mojave.bottle.1.tar.gz... (14.7MB)
+Removing: /usr/local/Cellar/readline/8.0.0_1... (48 files, 1.5MB)
+Removing: /Users/gerardo/Library/Caches/Homebrew/sqlite--3.29.0.mojave.bottle.tar.gz... (1.9MB)
+...
+Pruned 0 symbolic links and 15 directories from /usr/local
+
+```
+
+```bash
+# check postgres version:
+$ postgres --version
+postgres (PostgreSQL) 12.1
+
+# Now you can initialize the physical space on your hard-disk to allocate databases. To do this, create a default postgres database on the command line in case it didn't happen automatically:
+$ initdb /usr/local/var/postgres
+....
+initdb: error: directory "/usr/local/var/postgres" exists but is not empty
+....
+# You will see the error message: "initdb: directory "/usr/local/var/postgres" exists but is not empty" if the database was already created when you installed PostgreSQL. It means the folder where you are attempting to create a physical place for the database already has one. Either way, next you can move on to the next step.
+```
+
+
+##### Usar estas credenciales
+Usuario: user_djangoadminlte
+Contraseña: pepito_cabron (ejemplo)
+Base de datos: db_djangoadminlte
+
+
+
+Iniciar y Detener postgres:
+```bash
+$ pg_ctl -D /usr/local/var/postgres start
+$ pg_ctl -D /usr/local/var/postgres stop
+```
+
+##### Configurando postgres:
+```bash
+$ psql postgres
+psql (12.1)
+Type "help" for help.
+
+postgres=# 
+
+# Listar que usuarios existen en servidor:
+postgres=# \du
+                                   List of roles
+ Role name |                         Attributes                         | Member of 
+-----------+------------------------------------------------------------+-----------
+ gerardo   | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+
+# existe gerardo en lugar de postgres!! 
+# esto no lo sabia, es interesante la razon
+# cuando se instalo, se genero un rol (usuario) con el nombre
+# del usuario en sesion, y por eso puedo hacer psql postgres, sin mas
+
+# crear role:
+postgres=# CREATE ROLE user_djangoadminlte WITH LOGIN PASSWORD 'pepito_cabron';
+CREATE ROLE
+postgres=# \du
+                                        List of roles
+      Role name      |                         Attributes                         | Member of 
+---------------------+------------------------------------------------------------+-----------
+ gerardo             | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+ user_djangoadminlte |                                                            | {}
+
+
+# usuario no tiene ningun privilegio otro que entrar, asignar un privilegio:
+postgres=# ALTER ROLE user_djangoadminlte CREATEDB;
+ALTER ROLE
+postgres=# \du
+                                        List of roles
+      Role name      |                         Attributes                         | Member of 
+---------------------+------------------------------------------------------------+-----------
+ gerardo             | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+ user_djangoadminlte | Create DB                                                  | {}
+```
+
+Otro modo de crear el usuario seria:
+```bash
+$ createuser user_djangoadminlte --createdb
+# pero no hay comando desde bash para otros comandos ALTER
+```
+
+
+
+Crear database:
+
+Existen un par de modos. Veamos:
+
+```bash
+$ psql postgres -U user_djangoadminlte -W
+postgres=> CREATE DATABASE db_djangoadminlte;
+CREATE DATABASE
+
+# al menos un usuario deberia tener acceso a dicha base de datos
+postgres=> GRANT ALL PRIVILEGES ON DATABASE db_djangoadminlte TO user_djangoadminlte;
+GRANT
+postgres=> \l # lists all the databases in Postgres
+                                                 List of databases
+       Name        |        Owner        | Encoding | Collate | Ctype |              Access privileges              
+-------------------+---------------------+----------+---------+-------+---------------------------------------------
+ db_djangoadminlte | user_djangoadminlte | UTF8     | C       | C     | =Tc/user_djangoadminlte                    +
+                   |                     |          |         |       | user_djangoadminlte=CTc/user_djangoadminlte
+ postgres          | gerardo             | UTF8     | C       | C     | 
+ template0         | gerardo             | UTF8     | C       | C     | =c/gerardo                                 +
+                   |                     |          |         |       | gerardo=CTc/gerardo
+ template1         | gerardo             | UTF8     | C       | C     | =c/gerardo                                 +
+                   |                     |          |         |       | gerardo=CTc/gerardo
+(4 rows)
+
+# conectar a la base de datos:
+postgres=> \connect db_djangoadminlte # connect to a specific database
+Password for user user_djangoadminlte: 
+You are now connected to database "db_djangoadminlte" as user "user_djangoadminlte".
+db_djangoadminlte=> \dt # list the tables in the currently connected database
+Did not find any relations.
+```
+
+Otro modo de crearla desde la bash:
+```bash
+$ createdb db_djangoadminlte -U user_djangoadminlte
+```
+
+
+
+```bash
+$ createdb mydatabasename
+$ dropdb mydatabasename
+
+# Conectar a la bd:
+$ psql mydatabasename
+
+# he command leads you to the psql shell, which you can exit by typing CTRL + d. In the psql shell, you can create and drop databases as well:
+CREATE DATABASE mydatabasename;
+DROP DATABASE mydatabasename;
+
+# To list all your databases, you can type \list. Your will see any new databases listed, as well as two default databases that come with postgreSQL called template0 and template1. The templates should remain in your database list even if you aren't using them, as they may be useful later.
+
+    \list - List all of your actual databases.
+    \c mydatabasename - Connect to another database.
+    \d - List the relations of your currently connected database.
+    \d mytablename - Shows information for a specific table.
+```
+
 
 
 ```bash
