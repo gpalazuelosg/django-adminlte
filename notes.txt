@@ -1,0 +1,12 @@
+
+bloques en base.html:
+
+- page_title
+- main_navbar
+- main_sidebar
+- maincontent_title
+- maincontent_body
+- maincontent_footer
+- maincontent_modal
+- js_page
+
