@@ -32,13 +32,15 @@ Los casos son muy simples:
  5. Usuario puede crear un Punto de interes por visitar (point of interest to visit) ligada a una ciudad.
 
 
-### Postgres on Docker
+### Postgres
 
 References:
 * [hub.docker.com/postgres](https://hub.docker.com/_/postgres)
 * [Amigoscode - Docker and PostgreSQL in [10 Minutes]](https://youtu.be/aHbE3pTyG-Q)
 * [How to setup PostgreSQL on MacOS](https://www.robinwieruch.de/postgres-sql-macos-setup)
 * [Getting Started with PostgreSQL on Mac OSX](https://www.codementor.io/@engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb)
+
+#### Instalando Postgresql con Homebrew
 
 Una alternativa viable es instalar postgres utilizando Homebrew.
 ```bash
@@ -60,8 +62,10 @@ To migrate existing data from a previous major version of PostgreSQL run:
 
 To have launchd start postgresql now and restart at login:
   brew services start postgresql
+
 Or, if you don't want/need a background service you can just run:
   pg_ctl -D /usr/local/var/postgres start
+  
 ==> Summary
 🍺  /usr/local/Cellar/postgresql/12.1: 3,217 files, 37.7MB
 ==> `brew cleanup` has not been run in 30 days, running now...
