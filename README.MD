@@ -5,7 +5,7 @@ Es un intento de integrar la plantilla AdminLTE 3.0.1 a un proyecto Django 2.2.
 Éste proyecto me sirve de base para futuros iniciativos en Django. 
 
 
-### Qué confirma éste proyecto?
+### Qué conforma éste proyecto?
 
  * [Django 2.2](https://www.djangoproject.com/)
  * [AdminLTE 3.0.1](https://adminlte.io)
@@ -39,6 +39,7 @@ References:
 * [Amigoscode - Docker and PostgreSQL in [10 Minutes]](https://youtu.be/aHbE3pTyG-Q)
 * [How to setup PostgreSQL on MacOS](https://www.robinwieruch.de/postgres-sql-macos-setup)
 * [Getting Started with PostgreSQL on Mac OSX](https://www.codementor.io/@engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb)
+* [Django with Docker: Add Postgres](https://rayed.com/posts/2018/01/django-with-docker-add-postgres/)
 
 #### Instalando Postgresql con Homebrew
 
@@ -100,10 +101,10 @@ initdb: error: directory "/usr/local/var/postgres" exists but is not empty
 ```
 
 
-##### Usar estas credenciales
-Usuario: user_djangoadminlte
-Contraseña: pepito_cabron (ejemplo)
-Base de datos: db_djangoadminlte
+##### Credenciales ejemplo
+ * Usuario: user_djangoadminlte
+ * Contraseña: pepito_cabron (ejemplo)
+ * Base de datos: db_djangoadminlte
 
 
 
@@ -223,6 +224,7 @@ DROP DATABASE mydatabasename;
 ```
 
 
+#### Postgresql y Docker
 
 ```bash
 $ docker pull postgres:12.1-alpine
@@ -325,15 +327,15 @@ $ docker volume prune # remove all volumes
 ```
 
 
-### Cosas que necesito hacer para levantar proyecto demo
+### Acciones para levantar proyecto demo
 
-Utilizaré postgres (podrías usar MySQL también, _pero no MSSQL_). Entonces, necesitamos crear usuario y una base de datos.
+Utilizaré postgresql (podrías usar MySQL también, _pero no MSSQL_). Entonces, necesitamos crear usuario y una base de datos.
 
 > Recuerda anotar en un papel aparte usuario, su password y nombre de la base de datos a conectar.
 
-Usuario: user_djangoadminlte
-Contraseña: _
-Base de datos: db_djangoadminlte
+ * Usuario: user_djangoadminlte
+ * Contraseña: _
+ * Base de datos: db_djangoadminlte
 
 
 #### Probar conexión a la base de datos:
@@ -393,4 +395,4 @@ Cosas que podrían incluirse en fases posteriores:
  * Custom User authentication schema
  * REST API
 
-[Sugerencias?](https://twitter.com/gpalazuelos)
+[Sugerencias?](https://twitter.com/gpalazuelosg)
