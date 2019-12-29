@@ -6,8 +6,10 @@ bloques en base.html:
 - main_navbar
 - main_sidebar
 - maincontent_title
+- maincontent_title_post
 - maincontent_body
 - maincontent_footer
+- maincontent_footer_post
 - maincontent_modal
 - js_page
 
