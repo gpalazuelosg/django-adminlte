@@ -2,6 +2,7 @@
 bloques en base.html:
 
 - page_title
+- login
 - main_navbar
 - main_sidebar
 - maincontent_title
