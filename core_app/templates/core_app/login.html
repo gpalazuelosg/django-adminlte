@@ -14,6 +14,24 @@
       <div class="card-body login-card-body">
         <p class="login-box-msg">Sign in to start your session</p>
 
+        {% if form.errors %}
+          <small class="text-danger">
+            {% for field in form %}              
+              {% if field.errors %}
+                  {% for error in field.errors  %}
+                    {{ error|escape }}
+                  {% endfor %}                   
+              {% endif %}
+            {% endfor %}
+            
+            {% if form.non_field_errors %}
+              {% for error in form.non_field_errors %}
+                {{ error|escape }}
+              {% endfor %}
+            {% endif %}
+          </small>           
+        {% endif %}                    
+
         <form method="post">
           {% csrf_token %}
           <div class="input-group mb-3">
