@@ -9,12 +9,73 @@
 
 {% block login %} {% endblock login %}
 
-{% block maincontent_title %}
-    An amazing function title goes here
-{% endblock maincontent_title %}  
-
 {% block maincontent_body %}
-    Important content is expected here
+       
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Important content is expected here 1</h1>
+                </div>
+                <div class="col-sm-6">
+                <!-- <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Blank Page</li>
+                </ol> -->
+                </div>
+            </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">   
+            
+                <!-- Default box -->
+                <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Important Title here</h3>
+
+                    <div class="card-tools">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
+                                <i class="fas fa-wrench"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                <a href="#" class="dropdown-item">Action</a>
+                                <a href="#" class="dropdown-item">Another action</a>
+                                <a href="#" class="dropdown-item">Something else here</a>
+                                <a class="dropdown-divider"></a>
+                                <a href="#" class="dropdown-item">Separated link</a>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    Start creating your amazing application!
+                    <br/>Important content is expected here 2
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    Footer
+                </div>
+                <!-- /.card-footer-->
+                </div>
+                <!-- /.card -->
+            
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
 {% endblock maincontent_body %}
 
 {% block maincontent_footer %}
