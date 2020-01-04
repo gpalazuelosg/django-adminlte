@@ -390,6 +390,18 @@ $ python manage.py migrate
 ```
 
 
+### Comandos utiles git
+
+```bash
+$ git branch
+$ git checkout master
+$ git checkout -b 09_countries_crud
+$ git merge 09_countries_crud
+$ git push origin <branch>
+$ git push origin --all
+$ git branch -d ch_countries_crud
+```
+
 
 Cosas que podrían incluirse en fases posteriores:
  * Custom User authentication schema
