@@ -2,7 +2,7 @@
 
 
 {% block page_title %}
-    Welcome to our Demo site's Home
+    List of Countries
 {% endblock page_title %}
 
 {% block bode_class %}sidebar-mini{% endblock bode_class %}
@@ -18,58 +18,196 @@
             <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Important content is expected here 1</h1>
+                    <h1>Country List</h1>
                 </div>
                 <div class="col-sm-6">
-                <!-- <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Blank Page</li>
-                </ol> -->
                 </div>
             </div>
             </div><!-- /.container-fluid -->
         </section>
 
+
+        {% comment %} <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Ribbons</h3>
+
+                                <div class="card-tools">
+                                    <a href="#" class="btn btn-tool btn-sm">
+                                        <i class="fas fa-plus"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="position-relative p-3 bg-gray" style="height: 180px">
+                                    <div class="ribbon-wrapper">
+                                        <div class="ribbon bg-primary">
+                                        Ribbon
+                                        </div>
+                                    </div>
+                                    Ribbon Default <br />
+                                    <small>.ribbon-wrapper.ribbon-lg .ribbon</small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="position-relative p-3 bg-gray" style="height: 180px">
+                                    <div class="ribbon-wrapper ribbon-lg">
+                                        <div class="ribbon bg-info">
+                                        Ribbon Large
+                                        </div>
+                                    </div>
+                                    Ribbon Large <br />
+                                    <small>.ribbon-wrapper.ribbon-lg .ribbon</small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="position-relative p-3 bg-gray" style="height: 180px">
+                                    <div class="ribbon-wrapper ribbon-xl">
+                                        <div class="ribbon bg-secondary">
+                                        Ribbon Extra Large
+                                        </div>
+                                    </div>
+                                    Ribbon Extra Large <br />
+                                    <small>.ribbon-wrapper.ribbon-xl .ribbon</small>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="row mt-4">
+                                <div class="col-sm-4">
+                                    <div class="position-relative p-3 bg-gray" style="height: 180px">
+                                    <div class="ribbon-wrapper ribbon-lg">
+                                        <div class="ribbon bg-success text-lg">
+                                        Ribbon
+                                        </div>
+                                    </div>
+                                    Ribbon Large <br /> with Large Text <br />
+                                    <small>.ribbon-wrapper.ribbon-lg .ribbon.text-lg</small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="position-relative p-3 bg-gray" style="height: 180px">
+                                    <div class="ribbon-wrapper ribbon-xl">
+                                        <div class="ribbon bg-warning text-lg">
+                                        Ribbon
+                                        </div>
+                                    </div>
+                                    Ribbon Extra Large <br /> with Large Text <br />
+                                    <small>.ribbon-wrapper.ribbon-xl .ribbon.text-lg</small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="position-relative p-3 bg-gray" style="height: 180px">
+                                    <div class="ribbon-wrapper ribbon-xl">
+                                        <div class="ribbon bg-danger text-xl">
+                                        Ribbon
+                                        </div>
+                                    </div>
+                                    Ribbon Extra Large <br /> with Extra Large Text <br />
+                                    <small>.ribbon-wrapper.ribbon-xl .ribbon.text-xl</small>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+        <!-- /.content --> {% endcomment %}
+
+
         <!-- Main content -->
         <section class="content">   
-            
-                <!-- Default box -->
-                <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Important Title here</h3>
 
-                    <div class="card-tools">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
-                                <i class="fas fa-wrench"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                <a href="#" class="dropdown-item">Action</a>
-                                <a href="#" class="dropdown-item">Another action</a>
-                                <a href="#" class="dropdown-item">Something else here</a>
-                                <a class="dropdown-divider"></a>
-                                <a href="#" class="dropdown-item">Separated link</a>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+
+                        <!-- Default box -->
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                {% comment %} <h3 class="card-title">Important Title here</h3> {% endcomment %}
+
+                                <div class="card-tools">
+                                    <a href="#" class="btn btn-tool btn-sm">
+                                        <i class="fas fa-plus"></i>
+                                    </a>
+
+                                    {% comment %} <div class="btn-group">
+                                        <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
+                                            <i class="fas fa-wrench"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                            <a href="#" class="dropdown-item">New</a>
+                                            <a href="#" class="dropdown-item">Another action</a>
+                                            <a href="#" class="dropdown-item">Something else here</a>
+                                            <a class="dropdown-divider"></a>
+                                            <a href="#" class="dropdown-item">Separated link</a>
+                                        </div>
+                                    </div> {% endcomment %}
+                                </div>
                             </div>
+                            <div class="card-body">
+                                {% if not obj %}
+                                    There are no countries
+                                {% else %}
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <th>ID</th>
+                                            <th>Country</th>
+                                            <th>Is Active?</th>
+                                            <th>Created At</th>
+                                            <th>Updated At</th>
+                                            <th class="all">Actions</th>
+                                        </thead>
+                                        <tbody>
+                                            {% for item in obj %}
+                                                <tr>{{ item.id }}</tr>
+                                                <tr>{{ item.name }}</tr>
+                                                <tr>{{ item.active }}</tr>
+                                                <tr>{{ item.createdon|date:"d/m/Y H:i:s" }}</tr>
+                                                <tr>{{ item.lastupdatedon }}</tr>
+                                                <tr>
+                                                    <a href="#" class="btn btn-warning btn-circle" role="button">
+                                                        <i class="far fa-edit"></i>
+                                                    </a>
+                                                    <a href="#" class="btn btn-danger btn-circle" role="button">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </a>
+                                                </tr>
+                                            {% endfor %}                                    
+                                        </tbody>
+                                    </table>
+                                {% endif %}                        
+                            </div>
+                            <!-- /.card-body -->
+
+                            {% comment %} <div class="card-footer">
+                                Footer
+                            </div> {% endcomment %}
+                            <!-- /.card-footer-->
                         </div>
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-                            <i class="fas fa-times"></i>
-                        </button>
+                        <!-- /.card -->
+
                     </div>
+                    <!-- /.col -->
                 </div>
-                <div class="card-body">
-                    Start creating your amazing application!
-                    <br/>Important content is expected here 2
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                    Footer
-                </div>
-                <!-- /.card-footer-->
-                </div>
-                <!-- /.card -->
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
             
         </section>
         <!-- /.content -->
@@ -81,4 +219,13 @@
 {% block maincontent_footer %}
 {% endblock maincontent_footer %}
 
+    
+{% block js_page %}
+{% comment %} <script>
+    $(document).Toasts('create', {
+    title: 'Toast Title',
+    body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    });
+</script> {% endcomment %}
+{% endblock js_page %}
     
