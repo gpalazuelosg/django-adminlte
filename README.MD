@@ -114,6 +114,20 @@ $ pg_ctl -D /usr/local/var/postgres start
 $ pg_ctl -D /usr/local/var/postgres stop
 ```
 
+##### Comandos postgress:
+
+https://www.postgresqltutorial.com/psql-commands/
+
+```bash
+$ select version();
+\d employees
+\dn
+\dt
+\l
+\c mvp_employees gerardo;
+```
+
+
 ##### Configurando postgres:
 ```bash
 $ psql postgres
