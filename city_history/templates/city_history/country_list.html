@@ -177,18 +177,20 @@
                                         </thead>
                                         <tbody>
                                             {% for item in obj %}
-                                                <tr>{{ item.id }}</tr>
-                                                <tr>{{ item.name }}</tr>
-                                                <tr>{{ item.active }}</tr>
-                                                <tr>{{ item.createdon|date:"d/m/Y H:i:s" }}</tr>
-                                                <tr>{{ item.lastupdatedon }}</tr>
                                                 <tr>
-                                                    <a href="#" class="btn btn-warning btn-circle" role="button">
-                                                        <i class="far fa-edit"></i>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-circle" role="button">
-                                                        <i class="far fa-trash-alt"></i>
-                                                    </a>
+                                                    <td>{{ item.id }}</td>
+                                                    <td>{{ item.name }}</td>
+                                                    <td>{{ item.active }}</td>
+                                                    <td>{{ item.createdon|date:"d/m/Y H:i:s" }}</td>
+                                                    <td>{{ item.lastupdatedon }}</td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-warning btn-circle" role="button">
+                                                            <i class="far fa-edit"></i>
+                                                        </a>
+                                                        <a href="#" class="btn btn-danger btn-circle" role="button">
+                                                            <i class="far fa-trash-alt"></i>
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                             {% endfor %}                                    
                                         </tbody>

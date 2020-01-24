@@ -27,4 +27,4 @@ class CountryNew(LoginRequiredMixin, generic.CreateView):
 
     def form_valid(self, form):
         form.instance.createdby = self.request.user
-        return super.form_valid(form)
+        return super().form_valid(form)
