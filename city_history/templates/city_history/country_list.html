@@ -142,7 +142,7 @@
                                 {% comment %} <h3 class="card-title">Important Title here</h3> {% endcomment %}
 
                                 <div class="card-tools">
-                                    <a href="{% url 'city_history:country_new' %}" class="btn btn-tool btn-sm">
+                                    <a href="{% url 'city_history:country_new' %}" class="btn btn-sm btn-primary btn-circle">
                                         <i class="fas fa-plus"></i>
                                     </a>
 
@@ -180,11 +180,11 @@
                                                 <tr>
                                                     <td>{{ item.id }}</td>
                                                     <td>{{ item.name }}</td>
-                                                    <td>{{ item.active }}</td>
-                                                    <td>{{ item.createdon|date:"d/m/Y H:i:s" }}</td>
-                                                    <td>{{ item.lastupdatedon }}</td>
+                                                    <td>{{ item.active|yesno:"Active,Inactive" }}</td>
+                                                    <td>{{ item.createdon|date:"m/d/Y H:i:s" }}</td>
+                                                    <td>{{ item.lastupdatedon|date:"m/d/Y H:i:s" }}</td>
                                                     <td>
-                                                        <a href="#" class="btn btn-warning btn-circle" role="button">
+                                                        <a href="{% url 'city_history:country_edit' item.id %}" class="btn btn-warning btn-circle" role="button">
                                                             <i class="far fa-edit"></i>
                                                         </a>
                                                         <a href="#" class="btn btn-danger btn-circle" role="button">
