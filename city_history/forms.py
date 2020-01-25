@@ -4,6 +4,7 @@ from django import forms
 from .models import Country
 
 class CountryForm(forms.ModelForm):
+
     class Meta:
         model = Country
         fields = ["name", "active"]
@@ -21,4 +22,5 @@ class CountryForm(forms.ModelForm):
             self.fields[field].widget.attrs.update({
                 "class": "form-control"
             })
+
     

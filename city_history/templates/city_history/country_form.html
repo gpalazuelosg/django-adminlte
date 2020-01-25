@@ -18,7 +18,7 @@
             <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Add new Country</h1>
+                    <h1>{% if obj is None %}Add new {% else %} Edit {% endif %} Country</h1>
                 </div>
                 <div class="col-sm-6">
                 </div>
@@ -31,7 +31,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12 col-md-12">
+                        {% if obj is None %}
                         <div class="card card-primary">
+                        {% else %}
+                        <div class="card card-warning">
+                        {% endif %}
                             <div class="card-header">
                                 <h3 class="card-title">General data</h3>
                             </div>
@@ -47,15 +51,17 @@
                                             <input type="text" class="form-control form-control-lg" 
                                                 id="id_name" name="name" 
                                                 placeholder="Enter country name"
-                                                maxlength="100" required value="">
+                                                maxlength="100" 
+                                                required value="{% if obj %} {{ objj.name }} {% endif %}">
                                         </div>
                                         <div class="form-check">
                                             <input type="checkbox" class="form-check-input" 
-                                                id="id_active" name="active">
+                                                id="id_active" name="active" 
+                                                {% if obj.active %} checked {% endif %}>
                                             <label class="form-check-label" for="id_active">Is Active?</label>
                                         </div>
 
-                                        <!-- {{ form.as_p }} -->
+                                        {% comment %} {{ form.as_p }} {% endcomment %}
                                     </div>
                                     <!-- /.card-body -->
 
