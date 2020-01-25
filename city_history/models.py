@@ -7,6 +7,8 @@ from core_app.models import ModelClass
 # Create your models here.
 
 class Country(ModelClass):
+    """ Country class entity describing required fields. Inherits from ModelClass. """
+    
     name = models.CharField(
         max_length=100,
         help_text="Country name",

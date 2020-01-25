@@ -28,3 +28,15 @@ class CountryNew(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form):
         form.instance.createdby = self.request.user
         return super().form_valid(form)
+
+class CountryEdit(LoginRequiredMixin, generic.UpdateView):
+    model = Country
+    template_name = "city_history/country_form.html"
+    context_object_name = "obj"
+    form_class = CountryForm
+    success_url = reverse_lazy("city_history:country_list")
+    login_url = "core_app:login"
+
+    def form_valid(self, form):
+        form.instance.lastupdatedby = self.request.user.id
+        return super().form_valid(form)
