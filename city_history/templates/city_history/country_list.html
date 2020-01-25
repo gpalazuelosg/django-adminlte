@@ -227,11 +227,21 @@
 
     
 {% block js_page %}
-    {% comment %} <script>
-        $(document).Toasts('create', {
-        title: 'Toast Title',
-        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
-        });
-    </script> {% endcomment %}
+<!-- page script -->
+<script>
+  $(function () {
+    // call the datatables jQuery plugin
+    $('.table').DataTable();
+
+    /*$('.table').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });*/
+  });
+</script>
 {% endblock js_page %}
     
