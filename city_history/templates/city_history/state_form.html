@@ -42,34 +42,42 @@
                             <!-- /.card-header -->
 
                             <!-- form start -->
-                            <!-- <div class="row"> -->
+                            
                                 <form role="form" method="POST">
                                     {% csrf_token %}
                                     <div class="card-body">
-                                        <div class="input-group">
-                                            {{ form.country }}
-                                            {% comment %} <label for="name">Country name</label>
-                                            <input type="text" class="form-control form-control-lg" 
-                                                id="id_name" name="name" 
-                                                placeholder="Enter country name"
-                                                maxlength="100" 
-                                                required value="{% if obj %}{{ obj.name }}{% endif %}"> {% endcomment %}
-                                        </div>
-                                        <div class="input-group">
-                                            {{ form.name }}
-                                            {% comment %} <label for="name">Country name</label>
-                                            <input type="text" class="form-control form-control-lg" 
-                                                id="id_name" name="name" 
-                                                placeholder="Enter country name"
-                                                maxlength="100" 
-                                                required value="{% if obj %}{{ obj.name }}{% endif %}"> {% endcomment %}
-                                        </div>
-                                        <div class="form-check">
-                                            {{ form.active }}
-                                            {% comment %} <input type="checkbox" class="form-check-input" 
-                                                id="id_active" name="active" 
-                                                {% if obj.active %} checked {% endif %}>
-                                            <label class="form-check-label" for="id_active">Is Active?</label> {% endcomment %}
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <div class="input-group">
+                                                    {{ form.country }}
+                                                    {% comment %} <label for="name">Country name</label>
+                                                    <input type="text" class="form-control form-control-lg" 
+                                                        id="id_name" name="name" 
+                                                        placeholder="Enter country name"
+                                                        maxlength="100" 
+                                                        required value="{% if obj %}{{ obj.name }}{% endif %}"> {% endcomment %}
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="input-group">
+                                                    {{ form.name }}
+                                                    {% comment %} <label for="name">Country name</label>
+                                                    <input type="text" class="form-control form-control-lg" 
+                                                        id="id_name" name="name" 
+                                                        placeholder="Enter country name"
+                                                        maxlength="100" 
+                                                        required value="{% if obj %}{{ obj.name }}{% endif %}"> {% endcomment %}
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-check">
+                                                    {{ form.active }}
+                                                    {% comment %} <input type="checkbox" class="form-check-input" 
+                                                        id="id_active" name="active" 
+                                                        {% if obj.active %} checked {% endif %}>
+                                                    <label class="form-check-label" for="id_active">Is Active?</label> {% endcomment %}
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
@@ -79,7 +87,7 @@
                                         <a class="btn btn-default float-right" href="{% url 'city_history:state_list' %}">Cancel</a>
                                     </div>
                                 </form>
-                            <!-- </div> -->
+                            
                             <!-- /.row -->
                         </div>
                         <!-- /.card -->

@@ -29,6 +29,7 @@ class StateForm(forms.ModelForm):
         queryset = Country.objects.filter(active=True)
         .order_by("name")
     )
+    
     class Meta:
         model = State
         fields = ["country", "name", "active"]
