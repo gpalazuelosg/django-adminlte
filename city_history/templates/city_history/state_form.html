@@ -1,0 +1,110 @@
+{% extends "base/base.html" %}
+
+
+{% block page_title %}
+    Add new State
+{% endblock page_title %}
+
+{% block bode_class %}sidebar-mini{% endblock bode_class %}
+
+{% block login %} {% endblock login %}
+
+{% block maincontent_body %}
+       
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>{% if obj is None %}Add new {% else %} Edit {% endif %} State</h1>
+                </div>
+                <div class="col-sm-6">
+                </div>
+            </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">   
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        {% if obj is None %}
+                        <div class="card card-primary">
+                        {% else %}
+                        <div class="card card-warning">
+                        {% endif %}
+                            <div class="card-header">
+                                <h3 class="card-title">General data</h3>
+                            </div>
+                            <!-- /.card-header -->
+
+                            <!-- form start -->
+                            <!-- <div class="row"> -->
+                                <form role="form" method="POST">
+                                    {% csrf_token %}
+                                    <div class="card-body">
+                                        <div class="input-group">
+                                            {{ form.country }}
+                                            {% comment %} <label for="name">Country name</label>
+                                            <input type="text" class="form-control form-control-lg" 
+                                                id="id_name" name="name" 
+                                                placeholder="Enter country name"
+                                                maxlength="100" 
+                                                required value="{% if obj %}{{ obj.name }}{% endif %}"> {% endcomment %}
+                                        </div>
+                                        <div class="input-group">
+                                            {{ form.name }}
+                                            {% comment %} <label for="name">Country name</label>
+                                            <input type="text" class="form-control form-control-lg" 
+                                                id="id_name" name="name" 
+                                                placeholder="Enter country name"
+                                                maxlength="100" 
+                                                required value="{% if obj %}{{ obj.name }}{% endif %}"> {% endcomment %}
+                                        </div>
+                                        <div class="form-check">
+                                            {{ form.active }}
+                                            {% comment %} <input type="checkbox" class="form-check-input" 
+                                                id="id_active" name="active" 
+                                                {% if obj.active %} checked {% endif %}>
+                                            <label class="form-check-label" for="id_active">Is Active?</label> {% endcomment %}
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+
+                                    <div class="card-footer justify-content-between">
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                        <a class="btn btn-default float-right" href="{% url 'city_history:state_list' %}">Cancel</a>
+                                    </div>
+                                </form>
+                            <!-- </div> -->
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+            
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+
+{% endblock maincontent_body %}
+
+{% block maincontent_footer %}
+{% endblock maincontent_footer %}
+
+    
+{% block js_page %}
+
+{% endblock js_page %}
+    
