@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # solution
-from .models import Country
+from .models import Country, State
 from .forms import CountryForm
 
 
@@ -47,3 +47,8 @@ class CountryDelete(LoginRequiredMixin, generic.DeleteView):
     context_object_name = "obj"
     success_url = reverse_lazy("city_history:country_list")
 
+class StateView(LoginRequiredMixin, generic.ListView):
+    model = State
+    template_name = "city_history/state_list.html"
+    context_object_name = "obj"
+    login_url = "core_app:login"
