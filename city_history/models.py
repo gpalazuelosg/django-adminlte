@@ -41,7 +41,7 @@ class State(ModelClass):
     
     def save(self):
         self.name = self.name.upper()
-        super(State.self).save()
+        super(State,self).save()
 
     class Meta:
         verbose_name_plural = "States"

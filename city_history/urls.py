@@ -2,7 +2,7 @@
 from django.urls import path
 
 from .views import CountryView, CountryNew, CountryEdit, CountryDelete, \
-    StateView
+    StateView, StateNew
 
 urlpatterns = [
     path('countries/', CountryView.as_view(), name="country_list"),
@@ -11,4 +11,6 @@ urlpatterns = [
     path('countries/delete/<int:pk>', CountryDelete.as_view(), name="country_delete"),
 
     path('states/', StateView.as_view(), name="state_list"),
+    path('states/new', StateNew.as_view(), name="state_new"),
+
 ]

@@ -59,7 +59,7 @@ class StateNew(LoginRequiredMixin, generic.CreateView):
     model = State
     template_name = "city_history/state_form.html"
     context_object_name = "obj"
-    form_class = CountryForm
+    form_class = StateForm
     success_url = reverse_lazy("city_history:state_list")
     login_url = "core_app:login"
 
