@@ -416,7 +416,15 @@ $ git push origin --all
 $ git branch -d ch_countries_crud
 ```
 
+### Problemas ssh en MAC
 
+Para evitar introducir clave privada en cada corrida de git.
+
+ * https://github.com/lionheart/openradar-mirror/issues/15361#issuecomment-270242512
+ * https://apple.stackexchange.com/questions/48502/how-can-i-permanently-add-my-ssh-private-key-to-keychain-so-it-is-automatically
+
+
+Cosas
 Cosas que podrían incluirse en fases posteriores:
  * Custom User authentication schema
  * REST API
