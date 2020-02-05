@@ -66,3 +66,16 @@ class StateNew(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form):
         form.instance.createdby = self.request.user
         return super().form_valid(form)
+
+
+class StateEdit(LoginRequiredMixin, generic.UpdateView):
+    model = State
+    template_name = "city_history/state_form.html"
+    context_object_name = "obj"
+    form_class = StateForm
+    success_url = reverse_lazy("city_history:state_list")
+    login_url = "core_app:login"
+
+    def form_valid(self, form):
+        form.instance.lastupdatedby = self.request.user.id
+        return super().form_valid(form)
