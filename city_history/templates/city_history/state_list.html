@@ -84,7 +84,7 @@
                                                     <td>{{ item.createdon|date:"m/d/Y H:i:s" }}</td>
                                                     <td>{{ item.lastupdatedon|date:"m/d/Y H:i:s" }}</td>
                                                     <td>
-                                                        <a href="{% url 'city_history:country_edit' item.id %}" class="btn btn-warning btn-circle" role="button">
+                                                        <a href="{% url 'city_history:state_edit' item.id %}" class="btn btn-warning btn-circle" role="button">
                                                             <i class="far fa-edit"></i>
                                                         </a>
                                                         <a href="{% url 'city_history:country_delete' item.id %}" class="btn btn-danger btn-circle" role="button">
