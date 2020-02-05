@@ -2,7 +2,7 @@
 
 
 {% block page_title %}
-    Delete Country
+    Delete state
 {% endblock page_title %}
 
 {% block bode_class %}sidebar-mini{% endblock bode_class %}
@@ -18,7 +18,7 @@
             <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-xs-12 col-md-12">
-                    <h1>Please confirm you want to delete country entity</h1>
+                    <h1>Please confirm you want to delete state entity</h1>
                 </div>
             </div>
             </div><!-- /.container-fluid -->
@@ -31,7 +31,7 @@
                     <div class="col-xs-12 col-md-12">
                         <div class="card card-danger">
                             <div class="card-header">
-                                <h3 class="card-title">Delete country</h3>
+                                <h3 class="card-title">Delete state</h3>
                             </div>
                             <!-- /.card-header -->
 
@@ -46,7 +46,8 @@
 
                                     <div class="card-footer justify-content-between">
                                         <button type="submit" class="btn btn-danger">Yes, delete it.</button>
-                                        <a class="btn btn-default float-right" href="{% url 'city_history:country_list' %}">Cancel</a>
+                                        {% comment %} <a class="btn btn-default float-right" href="{% url 'city_history:state_list' %}">Cancel</a> {% endcomment %}
+                                        <a class="btn btn-default float-right" href="{{ request.META.HTTP_REFERER }}">Cancel</a>
                                     </div>
                                 </form>
                             <!-- </div> -->

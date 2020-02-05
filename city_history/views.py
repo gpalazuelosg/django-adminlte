@@ -79,3 +79,10 @@ class StateEdit(LoginRequiredMixin, generic.UpdateView):
     def form_valid(self, form):
         form.instance.lastupdatedby = self.request.user.id
         return super().form_valid(form)
+
+class StateDelete(LoginRequiredMixin, generic.DeleteView):
+    model = State
+    template_name = "city_history/state_delete.html"
+    context_object_name = "obj"
+    success_url = reverse_lazy("city_history:state_list")
+
