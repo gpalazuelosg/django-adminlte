@@ -1,0 +1,81 @@
+{% extends "base/base.html" %}
+
+
+{% block page_title %}
+    Delete city
+{% endblock page_title %}
+
+{% block bode_class %}sidebar-mini{% endblock bode_class %}
+
+{% block login %} {% endblock login %}
+
+{% block maincontent_body %}
+       
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-xs-12 col-md-12">
+                    <h1>Please confirm you want to delete city entity</h1>
+                </div>
+            </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">   
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        <div class="card card-danger">
+                            <div class="card-header">
+                                <h3 class="card-title">Delete city</h3>
+                            </div>
+                            <!-- /.card-header -->
+
+                            <!-- form start -->
+                            <!-- <div class="row"> -->
+                                <form role="form" method="POST">
+                                    {% csrf_token %}
+                                    <div class="card-body">
+                                        <h5>Delete <strong>"{{ obj.name }}"</strong>?</h5>
+                                    </div>
+                                    <!-- /.card-body -->
+
+                                    <div class="card-footer justify-content-between">
+                                        <button type="submit" class="btn btn-danger">Yes, delete it.</button>
+                                        {% comment %} <a class="btn btn-default float-right" href="{% url 'city_history:state_list' %}">Cancel</a> {% endcomment %}
+                                        <a class="btn btn-default float-right" href="{{ request.META.HTTP_REFERER }}">Cancel</a>
+                                    </div>
+                                </form>
+                            <!-- </div> -->
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+            
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+
+{% endblock maincontent_body %}
+
+{% block maincontent_footer %}
+{% endblock maincontent_footer %}
+
+    
+{% block js_page %}
+
+{% endblock js_page %}
+    

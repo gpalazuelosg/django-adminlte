@@ -54,8 +54,14 @@ class City(ModelClass):
     state = models.ForeignKey(State, on_delete=models.CASCADE)
     name = models.CharField(
         max_length=100,
-        help_text="City name",
+        #help_text="City name",
         blank= False,
+        null=False
+    )
+
+    founded_year = models.IntegerField(
+        default=0,
+        blank=False,
         null=False
     )
 

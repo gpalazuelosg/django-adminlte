@@ -1,0 +1,70 @@
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>{% if obj is None %}Add new {% else %} Edit {% endif %} City</h1>
+                    </div>
+                    <div class="col-sm-6">
+                    </div>
+                </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">   
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12">
+                            {% if obj is None %}
+                            <div class="card card-primary">
+                            {% else %}
+                            <div class="card card-warning">
+                            {% endif %}
+                                <div class="card-header">
+                                    <h3 class="card-title">General data</h3>
+                                </div>
+                                <!-- /.card-header -->
+
+                                <!-- form start -->
+                                    {% if obj %}
+                                    <form role="form" method="POST"  action="{% url 'city_history:city_edit' obj.pk %}">
+                                    {% else %}
+                                    <form role="form" method="POST"  action="{% url 'city_history:city_new' %}">
+                                    {% endif %}
+                                        {% csrf_token %}
+                                        <div class="card-body">
+                                            <div class="row">
+                                                {{ form.as_p }}
+                                            </div>
+                                        </div>
+                                        <!-- /.card-body -->
+
+                                        <div class="card-footer justify-content-between">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <a class="btn btn-default float-right" href="#" onclick="return close_modal();">Cancel</a>
+                                        </div>
+                                    </form>
+                                
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                </div>
+                <!-- /.container-fluid -->
+                
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+    </div>
+</div>
+

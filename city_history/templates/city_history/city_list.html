@@ -40,7 +40,7 @@
                                 {% comment %} <h3 class="card-title">Important Title here</h3> {% endcomment %}
 
                                 <div class="card-tools">
-                                    <a href="{% url 'city_history:state_new' %}" class="btn btn-sm btn-primary btn-circle">
+                                    <a onclick="return open_modal('{% url 'city_history:city_new' %}');" href="#" class="btn btn-sm btn-primary btn-circle">
                                         <i class="fas fa-plus"></i>
                                     </a>
                                 </div>
@@ -65,16 +65,16 @@
                                             {% for item in obj %}
                                                 <tr>
                                                     <td>{{ item.id }}</td>
-                                                    <td>{{ item.country }}</td>
+                                                    <td>{{ item.state }}</td>
                                                     <td>{{ item.name }}</td>
                                                     <td>{{ item.active|yesno:"Active,Inactive" }}</td>
                                                     <td>{{ item.createdon|date:"m/d/Y H:i:s" }}</td>
                                                     <td>{{ item.lastupdatedon|date:"m/d/Y H:i:s" }}</td>
                                                     <td>
-                                                        <a href="{% url 'city_history:state_edit' item.id %}" class="btn btn-warning btn-circle" role="button">
+                                                        <a onclick="return open_modal('{% url 'city_history:city_edit' item.pk %}');"  href="#" class="btn btn-warning btn-circle" role="button">
                                                             <i class="far fa-edit"></i>
                                                         </a>
-                                                        <a href="{% url 'city_history:state_delete' item.id %}" class="btn btn-danger btn-circle" role="button">
+                                                        <a href="{% url 'city_history:city_delete' item.id %}" class="btn btn-danger btn-circle" role="button">
                                                             <i class="far fa-trash-alt"></i>
                                                         </a>
                                                     </td>
@@ -116,19 +116,35 @@
 {% block js_page %}
 <!-- page script -->
 <script>
-  $(function () {
     // call the datatables jQuery plugin
-    $('.table').DataTable();
-
-    /*$('.table').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-    });*/
-  });
+    $(document).ready(function() {
+        $('.table').DataTable({
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron registros",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrando de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "<span class='fa fa-angle-double-left'></span>",
+                    "sLast": "<span class='fa fa-angle-double-right'></span>",
+                    "sNext": "<span class='fa fa-angle-right'></span>",
+                    "sPrevious": "<span class='fa fa-angle-left'></span>"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente",
+                }
+            }
+        });
+    });
 </script>
 {% endblock js_page %}
     

@@ -48,7 +48,9 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-sm-5">
-                                                <div class="input-group">
+                                                <div class="form-group">
+                                                    {{ form.country.errors }}
+                                                    {{ form.country.label_tag }} 
                                                     {{ form.country }}
                                                     {% comment %} <label for="name">Country name</label>
                                                     <input type="text" class="form-control form-control-lg" 
@@ -59,7 +61,9 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-5">
-                                                <div class="input-group">
+                                                <div class="form-group">
+                                                    {{ form.name.errors }}
+                                                    {{ form.name.label_tag }} 
                                                     {{ form.name }}
                                                     {% comment %} <label for="name">Country name</label>
                                                     <input type="text" class="form-control form-control-lg" 
@@ -71,6 +75,8 @@
                                             </div>
                                             <div class="col-sm-2">
                                                 <div class="form-check">
+                                                    {{ form.active.errors }}
+                                                    {{ form.active.label_tag }} 
                                                     {{ form.active }}
                                                     {% comment %} <input type="checkbox" class="form-check-input" 
                                                         id="id_active" name="active" 
