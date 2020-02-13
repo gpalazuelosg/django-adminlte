@@ -48,3 +48,27 @@ class State(ModelClass):
 
         # es un unique compuesto
         unique_together = ("country", "name")
+
+class City(ModelClass):
+    """ City class for this solution which is linked to one State entity. Inherits from ModelClass."""
+    state = models.ForeignKey(State, on_delete=models.CASCADE)
+    name = models.CharField(
+        max_length=100,
+        help_text="City name",
+        blank= False,
+        null=False
+    )
+
+    def __str__(self, *args, **kwargs):
+        return f"{self.state.name}:{self.name}"
+    
+    def save(self):
+        self.name = self.name.upper()
+        super(City,self).save()
+    
+    class Meta:
+        verbose_name_plural = "Cities"
+
+        # es un unique compuesto
+        unique_together = ("state", "name")
+    
