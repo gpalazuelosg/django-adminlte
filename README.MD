@@ -410,6 +410,8 @@ $ python manage.py migrate
 $ git branch
 $ git checkout master
 $ git checkout -b 09_countries_crud
+$ <make_changes>
+$ git checkout master
 $ git merge 09_countries_crud
 $ git push origin <branch>
 $ git push origin --all
