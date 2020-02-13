@@ -1,0 +1,134 @@
+{% extends "base/base.html" %}
+
+
+{% block page_title %}
+    List of Cities
+{% endblock page_title %}
+
+{% block bode_class %}sidebar-mini{% endblock bode_class %}
+
+{% block login %} {% endblock login %}
+
+{% block maincontent_body %}
+       
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Cities List</h1>
+                </div>
+                <div class="col-sm-6">
+                </div>
+            </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+
+        <!-- Main content -->
+        <section class="content">   
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+
+                        <!-- Default box -->
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                {% comment %} <h3 class="card-title">Important Title here</h3> {% endcomment %}
+
+                                <div class="card-tools">
+                                    <a href="{% url 'city_history:state_new' %}" class="btn btn-sm btn-primary btn-circle">
+                                        <i class="fas fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                {% if not obj %}
+                                    <div class="alert alert-warning">
+                                        There are no cities
+                                    </div>
+                                {% else %}
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <th>ID</th>
+                                            <th>State</th>
+                                            <th>City</th>
+                                            <th>Is Active?</th>
+                                            <th>Created At</th>
+                                            <th>Updated At</th>
+                                            <th class="all">Actions</th>
+                                        </thead>
+                                        <tbody>
+                                            {% for item in obj %}
+                                                <tr>
+                                                    <td>{{ item.id }}</td>
+                                                    <td>{{ item.country }}</td>
+                                                    <td>{{ item.name }}</td>
+                                                    <td>{{ item.active|yesno:"Active,Inactive" }}</td>
+                                                    <td>{{ item.createdon|date:"m/d/Y H:i:s" }}</td>
+                                                    <td>{{ item.lastupdatedon|date:"m/d/Y H:i:s" }}</td>
+                                                    <td>
+                                                        <a href="{% url 'city_history:state_edit' item.id %}" class="btn btn-warning btn-circle" role="button">
+                                                            <i class="far fa-edit"></i>
+                                                        </a>
+                                                        <a href="{% url 'city_history:state_delete' item.id %}" class="btn btn-danger btn-circle" role="button">
+                                                            <i class="far fa-trash-alt"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}                                    
+                                        </tbody>
+                                    </table>
+                                {% endif %}                        
+                            </div>
+                            <!-- /.card-body -->
+
+                            {% comment %} <div class="card-footer">
+                                Footer
+                            </div> {% endcomment %}
+                            <!-- /.card-footer-->
+                        </div>
+                        <!-- /.card -->
+
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+            
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+
+{% endblock maincontent_body %}
+
+{% block maincontent_footer %}
+{% endblock maincontent_footer %}
+
+    
+{% block js_page %}
+<!-- page script -->
+<script>
+  $(function () {
+    // call the datatables jQuery plugin
+    $('.table').DataTable();
+
+    /*$('.table').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });*/
+  });
+</script>
+{% endblock js_page %}
+    
